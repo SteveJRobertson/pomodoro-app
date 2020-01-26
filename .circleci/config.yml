@@ -6,6 +6,9 @@ version: 2.0
 
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: "3b9004bab50ee5a12bee115b61fb3459826bc3e326326217bd7fe46606851c9c"
+
     docker:
       # specify the version you desire here
       - image: circleci/node:12.6.0
@@ -27,13 +30,28 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
-      - run: npm run check
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      - run:
+          name: Check file formatting
+          command: npm run check
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      - run: npm test
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
+      - run:
+          name: Run tests
+          command: |
+            ./cc-test-reporter before-build
+            npm test -- --coverage --watchAll=false
+            ./cc-test-reporter after-build --exit-code $?
