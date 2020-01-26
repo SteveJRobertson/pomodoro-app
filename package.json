@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",
+    "electron": "^7.1.10",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-jest": "^23.6.0",
@@ -24,6 +25,7 @@
     "react-scripts": "3.3.0",
     "typescript": "^3.7.5"
   },
+  "main": "src/electron-starter.js",
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,yml,css,md}": [
       "prettier --write",
@@ -38,7 +40,10 @@
     "test:nowatch": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "check": "prettier --check **/*.{js,jsx,ts,tsx,json,yml,css,md}",
-    "format": "prettier --write **/*.{js,jsx,ts,tsx,json,yml,css,md} && eslint './{public,src}/*.{js,jsx,ts,tsx}' --fix"
+    "format": "prettier --write **/*.{js,jsx,ts,tsx,json,yml,css,md} && eslint './{public,src}/*.{js,jsx,ts,tsx}' --fix",
+    "electron": "electron .",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "dev": "nf start"
   },
   "eslintConfig": {
     "extends": "react-app"
