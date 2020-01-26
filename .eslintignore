@@ -1,0 +1,4 @@
+/.circleci/**
+/.vscode/**
+/build/**
+/node_modules/**

@@ -1,0 +1,7 @@
+.circleci
+.vscode
+build
+coverage
+node_modules
+**/*.{ico,png,jpg,svg,txt}
+tsconfig.json
