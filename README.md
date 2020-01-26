@@ -1,6 +1,6 @@
 # Pomodoro Timer
 
-[![CircleCI](https://circleci.com/gh/SteveJRobertson/pomodoro-app.svg?style=svg)](https://circleci.com/gh/SteveJRobertson/pomodoro-app)
+[![CircleCI](https://circleci.com/gh/SteveJRobertson/pomodoro-app.svg?style=svg)](https://circleci.com/gh/SteveJRobertson/pomodoro-app) [![dependencies Status](https://david-dm.org/stevejrobertson/pomodoro-app/status.svg)](https://david-dm.org/stevejrobertson/pomodoro-app) [![devDependencies Status](https://david-dm.org/stevejrobertson/pomodoro-app/dev-status.svg)](https://david-dm.org/stevejrobertson/pomodoro-app?type=dev) [![Maintainability](https://api.codeclimate.com/v1/badges/b9375f0c54a3f8494225/maintainability)](https://codeclimate.com/github/SteveJRobertson/pomodoro-app/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/b9375f0c54a3f8494225/test_coverage)](https://codeclimate.com/github/SteveJRobertson/pomodoro-app/test_coverage)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
