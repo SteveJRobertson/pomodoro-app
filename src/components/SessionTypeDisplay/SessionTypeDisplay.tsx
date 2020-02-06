@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { useState, useEffect } from 'react';
 import { sessionIntervals, sessionTypes } from '../../constants';
 
 type SessionTypeDisplayProps = {
@@ -28,5 +30,9 @@ export const SessionTypeDisplay: React.FC<SessionTypeDisplayProps> = ({
     }
   }, [sessionLengthMins]);
 
-  return <h2>{displaySessionType}</h2>;
+  const sessionTypeDisplayStyles = css`
+    text-align: center;
+  `;
+
+  return <h2 css={sessionTypeDisplayStyles}>{displaySessionType}</h2>;
 };
