@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, ButtonGroup, Intent } from '@blueprintjs/core';
+// eslint-disable-next-line no-unused-vars
+import { Button, ButtonGroup, IconName, Intent } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 
 interface TimerControlProps {
@@ -27,36 +28,39 @@ export const TimerControls: React.FC<TimerControlProps> = ({
     onStop();
   };
 
+  const renderButton = (
+    buttonText: string,
+    icon: IconName,
+    intent: Intent,
+    onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void,
+  ) => (
+    <Button large={true} icon={icon} intent={intent} onClick={onClick}>
+      {buttonText}
+    </Button>
+  );
+
   return (
     <ButtonGroup>
-      {!isRunning && (
-        <Button
-          icon={IconNames.PLAY}
-          intent={Intent.SUCCESS}
-          large={true}
-          onClick={handlePlayButtonClick}
-        >
-          Play
-        </Button>
+      {!isRunning &&
+        renderButton(
+          'Play',
+          IconNames.PLAY,
+          Intent.SUCCESS,
+          handlePlayButtonClick,
+        )}
+      {isRunning &&
+        renderButton(
+          'Pause',
+          IconNames.PAUSE,
+          Intent.SUCCESS,
+          handlePauseButtonClick,
+        )}
+      {renderButton(
+        'Stop',
+        IconNames.STOP,
+        Intent.DANGER,
+        handleStopButtonClick,
       )}
-      {isRunning && (
-        <Button
-          icon={IconNames.PAUSE}
-          intent={Intent.SUCCESS}
-          large={true}
-          onClick={handlePauseButtonClick}
-        >
-          Pause
-        </Button>
-      )}
-      <Button
-        icon={IconNames.STOP}
-        intent={Intent.DANGER}
-        large={true}
-        onClick={handleStopButtonClick}
-      >
-        Stop
-      </Button>
       {/* <Button large={true}>
           <Icon icon={IconNames.STEP_FORWARD} iconSize={Icon.SIZE_LARGE} />
         </Button> */}
