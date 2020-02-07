@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MAX_WORK_INTERVAL_COUNT } from '../../constants';
 
 type NumberOfSessionsDisplayProps = {
@@ -27,9 +25,5 @@ export const NumberOfSessionsDisplay: React.FC<NumberOfSessionsDisplayProps> = (
     }
   }, [workIntervalCount]);
 
-  const numberOfSessionsDisplayStyles = css`
-    text-align: center;
-  `;
-
-  return <p css={numberOfSessionsDisplayStyles}>{displayNumberOfSessions}</p>;
+  return <p>{displayNumberOfSessions}</p>;
 };
